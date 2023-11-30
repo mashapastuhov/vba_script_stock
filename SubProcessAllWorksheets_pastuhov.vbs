@@ -108,9 +108,8 @@ Sub ProcessWorksheet(ws As Worksheet)
     ws.Range("Q4").Value = GreatestTotalVolume
     ws.Range("P4").Value = GreatestVolumeTicker
     ws.Range("Q2").Style = "Percent"
-ws.Range("Q3").Style = "Percent"
+    ws.Range("Q3").Style = "Percent"
 
-    
 
     ' Color Column J and K based on Percent Change
     Dim lastRowsummarytable As Long
@@ -122,17 +121,10 @@ ws.Range("Q3").Style = "Percent"
         ElseIf ws.Cells(i, 10).Value < 0 Then
             ws.Cells(i, 10).Interior.ColorIndex = 3 ' Red
         End If
-
-     For i = 2 To lastRowsummarytable
-        If ws.Cells(i, 11).Value > 0 Then
-            ws.Cells(i, 11).Interior.ColorIndex = 4 ' Green
-        ElseIf ws.Cells(i, 11).Value < 0 Then
-            ws.Cells(i, 11).Interior.ColorIndex = 3 ' Red
-        End If
-    Next i    
-    
+       
+   
     Next i
-    
+   
      For i = 2 To lastRowsummarytable
      ws.Cells(i, 11).Style = "percent"
      Next i
@@ -140,8 +132,13 @@ ws.Range("Q3").Style = "Percent"
        For i = 2 To lastRowsummarytable
      ws.Cells(i, 10).Style = "currency"
      Next i
-    
-  
+   
+    For i = 2 To lastRowsummarytable
+        If ws.Cells(i, 11).Value > 0 Then
+            ws.Cells(i, 11).Interior.ColorIndex = 4 ' Green
+        ElseIf ws.Cells(i, 11).Value < 0 Then
+            ws.Cells(i, 11).Interior.ColorIndex = 3 ' Red
+        End If
+    Next i
 End Sub
-
 
