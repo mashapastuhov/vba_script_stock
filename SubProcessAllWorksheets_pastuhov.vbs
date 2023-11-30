@@ -122,7 +122,14 @@ ws.Range("Q3").Style = "Percent"
         ElseIf ws.Cells(i, 10).Value < 0 Then
             ws.Cells(i, 10).Interior.ColorIndex = 3 ' Red
         End If
-        
+
+     For i = 2 To lastRowsummarytable
+        If ws.Cells(i, 11).Value > 0 Then
+            ws.Cells(i, 11).Interior.ColorIndex = 4 ' Green
+        ElseIf ws.Cells(i, 11).Value < 0 Then
+            ws.Cells(i, 11).Interior.ColorIndex = 3 ' Red
+        End If
+    Next i    
     
     Next i
     
